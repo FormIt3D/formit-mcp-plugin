@@ -6,7 +6,7 @@ if (typeof FormItMCP == 'undefined')
 FormItMCP.initializeMCP = function() {
     if (window.formitBridgeWS && window.formitBridgeWS.readyState === WebSocket.OPEN) {
         console.log("WebSocket already connected.");
-        FormItMCP.updateUI(MCPPluginStatuses.connected.id);
+        FormIt.Messaging.Broadcast("FormIt.Message.kFormItJSONMsg", MCPPluginStatuses.connected.id);
     } else {
         window.formitBridgeWS = new WebSocket("ws://localhost:8765");
 

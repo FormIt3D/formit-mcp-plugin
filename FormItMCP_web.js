@@ -33,7 +33,9 @@ FormItMCP.initializeUI = function()
     staticTextDiv.innerHTML = "This plugin will connect to a local MCP server automatically.<br><br>If needed, you can force a reconnect:";
 
     // create the button to set the LCS on the selected face
-    contentContainer.appendChild(new FormIt.PluginUI.Button('Force Reconnect', FormItMCP.initializeMCP).element);
+    contentContainer.appendChild(new FormIt.PluginUI.Button('Force Reconnect', () => {
+        FormItInterface.CallMethod("FormItMCP.initializeMCP", { })
+    }).element);
     
     // create the footer
     document.body.appendChild(new FormIt.PluginUI.FooterModule().element);
