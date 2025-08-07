@@ -111,7 +111,7 @@ FormItMCP.initializeMCP = () => {
 
         window.formitBridgeWS.onmessage = async function(event) {
             try {
-                let code = event.data;4
+                let code = event.data;
                 console.log("DEBUGGING: event.data", event.data);
                 // Evaluate the received JS code
                 let result = await eval(code);
