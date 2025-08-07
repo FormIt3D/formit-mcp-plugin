@@ -13,7 +13,9 @@ FormItMCP.initializeUI = function()
     // everything except the footer
     let contentContainer = document.createElement('div');
     contentContainer.id = 'contentContainer';
-    contentContainer.className = 'contentContainer'
+    contentContainer.className = 'contentContainer';
+    // this plugin doesn't have enough content to scroll
+    contentContainer.style.overflowY = 'hidden';
     window.document.body.appendChild(contentContainer);
 
     // create the header
