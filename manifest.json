@@ -2,7 +2,10 @@
     "PluginName": "FormIt MCP Plugin",
     "PluginDescription": "Enables FormIt to be controlled by an MCP server",
     "PluginType": "Panel",
-    "Scripts": [],
+    "Scripts": [
+        "PLUGINLOCATION/FormItMCP_client.js",
+        "PLUGINLOCATION/MCP-statuses.js"
+    ],
     "Panel": "PLUGINLOCATION/index.html",
     "PanelIcon": "PLUGINLOCATION/img/formit-mcp@2x.png"
 }
