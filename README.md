@@ -10,6 +10,7 @@ A basic plugin to facilitate a FormIt/WSM MCP server by running some initializat
 ```
 https://formit3d.github.io/formit-mcp-plugin/
 ```
-- Hit **Load** or **Install**
-    - Load will load the plugin only for this session
-    - Install will install it for all future sessions
+- Hit **Install**
+- The plugin will automatically try to connect to a local MCP server:
+    - ![alt text](formit-mcp-status.png)
+- The MCP plugin is now installed and will be available even after refreshing FormIt Web
