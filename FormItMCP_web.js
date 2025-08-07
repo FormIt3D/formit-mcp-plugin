@@ -1,16 +1,13 @@
 console.log("FormItMCP_web.js module starting to load...");
 
-if (typeof FormItMCP == 'undefined')
-{
-    FormItMCP = {};
-}
+window.FormItMCP = window.FormItMCP || {};
 
 let statusDiv = document.createElement('div');
 statusDiv.style.padding = '10px';
 
 /*** web/UI code - runs natively in the plugin process ***/
 /*** note that FormItMCP_web.js runs on the FormIt side ***/
-FormItMCP.initializeUI = async function()
+FormItMCP.initializeUI = function()
 {
     // create an overall container for all objects that comprise the "content" of the plugin
     // everything except the footer
@@ -44,25 +41,25 @@ FormItMCP.initializeUI = async function()
 
 // update the status div
 FormItMCP.updateUI = (currentStatus) => {
-    // switch (currentStatus) {
-    //     case MCPStatuses.connecting.id:
-    //         statusDiv.innerHTML = MCPStatuses.connecting.message;
-    //         statusDiv.style.backgroundColor = MCPStatuses.connecting.color;
-    //         break;
-    //     case MCPStatuses.connected.id:
-    //         statusDiv.innerHTML = MCPStatuses.connected.message;
-    //         statusDiv.style.backgroundColor = MCPStatuses.connected.color;
-    //         break;
-    //     case MCPStatuses.disconnected.id:
-    //         statusDiv.innerHTML = MCPStatuses.disconnected.message;
-    //         statusDiv.style.backgroundColor = MCPStatuses.disconnected.color;
-    //         break;
-    //     case MCPStatuses.error.id:
-    //         statusDiv.innerHTML = MCPStatuses.error.message;
-    //         statusDiv.style.backgroundColor = MCPStatuses.error.color;
-    //         break;
-    //     default:
-    //         statusDiv.innerHTML = MCPStatuses.unknown.message;
-    //         statusDiv.style.backgroundColor = MCPStatuses.unknown.color;
-    // }
+    switch (currentStatus) {
+        case MCPPluginStatuses.connecting.id:
+            statusDiv.innerHTML = MCPPluginStatuses.connecting.message;
+            statusDiv.style.backgroundColor = MCPPluginStatuses.connecting.color;
+            break;
+        case MCPPluginStatuses.connected.id:
+            statusDiv.innerHTML = MCPPluginStatuses.connected.message;
+            statusDiv.style.backgroundColor = MCPPluginStatuses.connected.color;
+            break;
+        case MCPPluginStatuses.disconnected.id:
+            statusDiv.innerHTML = MCPPluginStatuses.disconnected.message;
+            statusDiv.style.backgroundColor = MCPPluginStatuses.disconnected.color;
+            break;
+        case MCPPluginStatuses.error.id:
+            statusDiv.innerHTML = MCPPluginStatuses.error.message;
+            statusDiv.style.backgroundColor = MCPPluginStatuses.error.color;
+            break;
+        default:
+            statusDiv.innerHTML = MCPPluginStatuses.unknown.message;
+            statusDiv.style.backgroundColor = MCPPluginStatuses.unknown.color;
+    }
 }

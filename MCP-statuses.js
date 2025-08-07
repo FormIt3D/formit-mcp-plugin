@@ -1,5 +1,5 @@
 const statusPrefix = 'MCP server status: ';
-const statuses = {
+window.MCPPluginStatuses = {
     connecting: {
         id: 'connecting',
         message: statusPrefix + 'Connecting...',
@@ -26,5 +26,3 @@ const statuses = {
         color: 'rgb(234, 234, 234)'
     }
 }
-
-export default statuses;
