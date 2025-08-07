@@ -1,4 +1,6 @@
 const statusPrefix = 'MCP server status: ';
+// add MCP statuses to the window object 
+// for client and web side scripts to access
 window.MCPPluginStatuses = {
     connecting: {
         id: 'connecting',

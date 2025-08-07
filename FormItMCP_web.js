@@ -37,6 +37,15 @@ FormItMCP.initializeUI = function()
     
     // create the footer
     document.body.appendChild(new FormIt.PluginUI.FooterModule().element);
+
+    // add a listener for the current MCP server status
+    FormItInterface.SubscribeMessage("FormIt.Message.kFormItJSONMsg", function(msg)
+    {
+        // update the UI when the status changes
+        FormItMCP.updateUI(msg);
+    });
+
+    FormItInterface.CallMethod("FormItMCP.initializeMCP", { })
 }
 
 // update the status div

@@ -12,16 +12,14 @@ FormItMCP.initializeMCP = function() {
 
         window.formitBridgeWS.onopen = function() {
             console.log("FormIt WebSocket bridge connected.");
-            FormItMCP.updateUI(MCPPluginStatuses.connected.id);
+            FormIt.Messaging.Broadcast("FormIt.Message.kFormItJSONMsg", MCPPluginStatuses.connected.id);
         };
 
         window.formitBridgeWS.onmessage = async function(event) {
             try {
                 let code = event.data;
-                console.log("DEBUGGING: event.data", event.data);
                 // Evaluate the received JS code
                 let result = eval(code);
-                console.log("DEBUGGING: result", JSON.stringify(JSON.stringify({ result })));
                 // Send the result back as JSON
                 window.formitBridgeWS.send(JSON.stringify({ result }));
             } catch (err) {
@@ -32,14 +30,12 @@ FormItMCP.initializeMCP = function() {
 
         window.formitBridgeWS.onclose = function() {
             console.log("FormIt WebSocket bridge disconnected.");
-            FormItMCP.updateUI(MCPPluginStatuses.disconnected.id);
+            FormIt.Messaging.Broadcast("FormIt.Message.kFormItJSONMsg", MCPPluginStatuses.disconnected.id);
         };
 
         window.formitBridgeWS.onerror = function(e) {
             console.error("WebSocket error:", e);
-            FormItMCP.updateUI(MCPPluginStatuses.error.id);
+            FormIt.Messaging.Broadcast("FormIt.Message.kFormItJSONMsg", MCPPluginStatuses.error.id);
         };
     }
 }
-
-FormItMCP.initializeMCP();
